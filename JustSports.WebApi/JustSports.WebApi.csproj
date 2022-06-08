@@ -26,4 +26,8 @@
     <ProjectReference Include="..\JustSports.Infrastructure\JustSports.Infrastructure.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="DBBackup\" />
+  </ItemGroup>
+
 </Project>
