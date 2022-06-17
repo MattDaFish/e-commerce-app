@@ -9,20 +9,6 @@ namespace JustSports.Core.Entities.OrderAggregate
 {
     public class Order
     {
-        public Order()
-        {
-        }
-
-        public Order(Customer customer, IReadOnlyList<OrderItem> orderItems, decimal amountInclVat)
-        {
-            OrderNumber = GenerateOrderNumber();
-            AmountInclVat = amountInclVat;
-            Vat = CalculateVatAmount(amountInclVat);
-            AmountExclVat = AmountInclVat - Vat;
-            Customer = customer;
-            OrderItems = orderItems;
-        }
-
         public long Id { get; set; }
 
         public DateTimeOffset OrderDate { get; set; } = DateTimeOffset.Now;
@@ -31,25 +17,49 @@ namespace JustSports.Core.Entities.OrderAggregate
         public decimal Vat { get; set; }
         public decimal AmountExclVat { get; set; }
 
-        public OrderStatus Status { get; set; } = OrderStatus.Pending;
+        public int OrderStatus { get; set; }
+
+        public long BasketId { get; set; }
 
         public int CustomerId { get; set; }
-        public Customer Customer { get; set; }
-
+        //public Customer Customer { get; set; }
+        
         public IReadOnlyList<OrderItem> OrderItems { get; set; }
 
-        //### Temp
-        private string GenerateOrderNumber()
+        public Order()
         {
+        }
 
-            return "000" + CustomerId;
+        public Order(int customerId, int orderCount, long basketId)
+        {
+            OrderNumber = GenerateOrderNumber(customerId, orderCount);
+            AmountInclVat = 0;
+            Vat = 0;
+            AmountExclVat = 0;
+            CustomerId = customerId;
+            BasketId = basketId;
+            OrderStatus = (int)OrderStatusEnum.Pending;
+        }
+
+        public void UpdateOrder(decimal amountInclVat, IReadOnlyList<OrderItem> orderItems)
+        {
+            AmountInclVat = amountInclVat;
+            Vat = CalculateVatAmount(amountInclVat);
+            AmountExclVat = amountInclVat - Vat;
+
+            OrderItems = orderItems;
+        }
+
+        private string GenerateOrderNumber(int customerId, int orderCount)
+        {
+            orderCount += 1;
+
+            return "ORD-" + customerId + "-000" + orderCount;
         }
 
         private decimal CalculateVatAmount(decimal amountInclVat)
         {
-            decimal Vat = (amountInclVat - (15/100));
-
-            return Vat;
+            return (amountInclVat / 100) * 15;
         }
     }
 }

@@ -2,16 +2,12 @@ using System.Runtime.Serialization;
 
 namespace JustSports.Core.Enum
 {
-    public enum OrderStatus
+    public enum OrderStatusEnum
     {
-        [EnumMember(Value = "Pending")]
-        Pending, 
-
-        [EnumMember(Value = "PaymentReceived")]
-        PaymentReceived, 
-        
-        [EnumMember(Value = "PaymentFailed")]
-        PaymentFailed
-
+        Pending = 1,
+        PaymentReceived = 2,
+        PaymentFailed = 3,
+        Delivered = 4,
+        Cancelled = 5
     }
 }

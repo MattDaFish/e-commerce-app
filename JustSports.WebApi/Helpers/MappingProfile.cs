@@ -1,5 +1,7 @@
 ﻿using AutoMapper;
 using JustSports.Core.Entities;
+using JustSports.Core.Entities.BasketAggregate;
+using JustSports.Core.Entities.OrderAggregate;
 using JustSports.WebApi.Models;
 
 namespace JustSports.WebApi.Helpers
@@ -18,6 +20,12 @@ namespace JustSports.WebApi.Helpers
             CreateMap<Customer, AccountSignupResponse>();
             CreateMap<Customer, AuthenticateAccount>();
 
+            CreateMap<Basket, BasketData>();
+            CreateMap<BasketItem, BasketItemData>();
+
+            CreateMap<Order, OrderData>();
+            CreateMap<OrderItem, OrderItemData>();
+
             //### Resource to Model mapping
             CreateMap<CategoryData, Category>();
             CreateMap<SaveCategoryData, Category>();
@@ -26,7 +34,10 @@ namespace JustSports.WebApi.Helpers
             CreateMap<AccountSignup, Customer>();
             CreateMap<AuthenticateAccount, Customer>();
 
+            CreateMap<BasketData, Basket>();
+            CreateMap<BasketItemData, BasketItem>();
 
+            //CreateMap<SaveBasketData, Basket>();
         }
     }
 }

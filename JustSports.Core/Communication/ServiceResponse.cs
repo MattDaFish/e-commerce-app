@@ -1,19 +1,19 @@
 namespace JustSports.Core.Communication
 {
-    public abstract class BaseResponse<T>
+    public abstract class ServiceResponse<T>
     {
         public bool Success { get; private set; }
         public string Message { get; private set; }
         public T Resource { get; private set; }
 
-        protected BaseResponse(T resource)
+        protected ServiceResponse(T resource)
         {
             Success = true;
             Message = string.Empty;
             Resource = resource;
         }
 
-        protected BaseResponse(string message)
+        protected ServiceResponse(string message)
         {
             Success = false;
             Message = message;

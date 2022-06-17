@@ -10,8 +10,11 @@ namespace JustSports.WebApi.Models
     {
         public long Id { get; set; }
 
-        public ProductData ProductOrdered { get; set; }
-        public decimal Price { get; set; }
+        public long OrderId { get; set; }
+
+        public long ProductId { get; set; }
+
+        public decimal PurchasePrice { get; set; }
         public int Quantity { get; set; }
     }
 }

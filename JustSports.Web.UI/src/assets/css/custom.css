@@ -6658,7 +6658,7 @@ ul.rep-comments {
 	text-align: center;
 }
 .page-404 .p404-wrap {
-	width: 40%;
+	width: 40% !important;
 	margin: 0 auto;
 	overflow: hidden;
 	padding: 10% 0 0;
@@ -9324,4 +9324,28 @@ Search Overlay End
 	font-family: 'Open Sans', sans-serif;
 	font-family: 'Montserrat', sans-serif;
 	font-family: 'Poppins', sans-serif;
+}
+
+/**** MY CUSTOM ****/
+
+.main-search-wrap {
+	width: 40% !important;
+	margin: 0 auto;
+	overflow: hidden;
+	padding: 0 0 80px 0;
+}
+
+.profile-table-header{
+	text-align: left !important;
+	padding: 0px 0px 0px 10px !important;
+}
+
+.custom-table thead td{
+	color:#fff !important;
+}
+
+.custom-table td{
+	color:#777777 !important;
+	text-align: left !important;
+	font-weight: normal !important;
 }

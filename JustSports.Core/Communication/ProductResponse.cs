@@ -2,7 +2,7 @@ using JustSports.Core.Entities;
 
 namespace JustSports.Core.Communication
 {
-    public class ProductResponse : BaseResponse<Product>
+    public class ProductResponse : ServiceResponse<Product>
     {
         public ProductResponse(Product product) : base(product) { }
 

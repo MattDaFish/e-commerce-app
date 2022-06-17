@@ -1,0 +1,57 @@
+<!--Main Content Start-->
+<div class="main-content p40 innerpagebg wf100">
+    <!--Register Page Start-->
+    <div class="contact">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                </div>            
+                <!--Form Start-->
+                <div class="col-md-6">
+                    <form>
+                        <div class="contact-form">
+                            <h2>Register</h2>
+                            <ul class="form-row">
+                                <li class="full-col">
+                                    <input type="email" class="form-control"
+                                    name="email"
+                                    placeholder="Email address"
+                                    required
+                                    [(ngModel)]="form.email"
+                                    #email="ngModel" />                               
+                                </li>
+                                <li class="half-col">
+                                    <input type="password" class="form-control"
+                                    name="password"
+                                    placeholder="Password"
+                                    required
+                                    [(ngModel)]="form.password"
+                                    #password="ngModel" />                                
+                                </li>
+                                <li class="half-col">
+                                    <input type="password" class="form-control"
+                                    name="confirmPassword"
+                                    placeholder="Password"
+                                    required
+                                    [(ngModel)]="form.confirmPassword"
+                                    #confirmPassword="ngModel" />                                
+                                </li>
+                                <li class="full-col">
+                                    <button (click)="registerUser()" type="button">Register Now</button>
+                                </li>
+                                <li class="full-col">
+                                    <span class="float-left mt-3">Already registered? <a routerLink="/login" class="text-danger"> Login</a></span> 
+                                </li>                                             
+                            </ul>
+                        </div>
+                    </form>
+                </div>
+                <!--Form End--> 
+                <div class="col-md-3">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Register Page End--> 
+</div>
+<!--Main Content End--> 

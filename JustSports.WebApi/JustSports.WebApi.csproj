@@ -8,6 +8,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="DBBackup\**" />
+    <Content Remove="DBBackup\**" />
+    <EmbeddedResource Remove="DBBackup\**" />
+    <None Remove="DBBackup\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Remove="Extensions\SwaggerServiceExtension.cs" />
   </ItemGroup>
 
@@ -24,10 +31,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\JustSports.Infrastructure\JustSports.Infrastructure.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="DBBackup\" />
   </ItemGroup>
 
 </Project>

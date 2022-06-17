@@ -39,8 +39,7 @@ namespace JustSports.WebApi.Middleware
 			{
 				//CustomerAuthenticationFailureException => "Incorrect username or password.",
 				AccessViolationException => "Access violation error from the custom middleware",
-				
-				_ => "Internal Server Error from the custom middleware."
+				_ => exception.Message
 			};
 
 			_logger.LogError($"Error: {message}");

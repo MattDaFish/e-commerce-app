@@ -54,12 +54,12 @@ namespace JustSports.WebApi.Controllers
         /// <summary>
         /// Saves a new category
         /// </summary>
-        /// <param name="resource">Category data.</param>
+        /// <param name="categoryData">Category data</param>
         /// <returns></returns>
         [HttpPost("categories")]
-        public async Task<IActionResult> CreateCategory(SaveCategoryData resource)
+        public async Task<IActionResult> CreateCategory(SaveCategoryData categoryData)
         {
-            var category = _mapper.Map<SaveCategoryData, Category>(resource);
+            var category = _mapper.Map<SaveCategoryData, Category>(categoryData);
 
             var result = await _categoryRepo.CreateCategoryAsync(category);
 
@@ -75,15 +75,15 @@ namespace JustSports.WebApi.Controllers
         /// Updates an existing category according to an identifier
         /// </summary>
         /// <param name="id">Category identifier</param>
-        /// <param name="resource">Updated category data.</param>
+        /// <param name="categoryData">Updated category data.</param>
         /// <returns></returns>
         [HttpPut("categories/{id}")]
-        public async Task<IActionResult> UpdateCategory(int id, [FromBody] CategoryData resource)
+        public async Task<IActionResult> UpdateCategory(int id, [FromBody] CategoryData categoryData)
         {
-            if (id != resource.Id)
+            if (id != categoryData.Id)
                 return BadRequest();
 
-            var category = _mapper.Map<CategoryData, Category>(resource);
+            var category = _mapper.Map<CategoryData, Category>(categoryData);
 
             var result = await _categoryRepo.UpdateCategoryAsync(category);
 
@@ -94,7 +94,6 @@ namespace JustSports.WebApi.Controllers
 
             return Ok(data);
         }
-
 
     }
 }

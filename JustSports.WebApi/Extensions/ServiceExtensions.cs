@@ -28,10 +28,14 @@ namespace JustSports.WebApi.Extensions
 
         public static void AddDomainServices(this IServiceCollection services)
         {
+            services.AddScoped<IAccountRepository, AccountRepository>();
+            services.AddScoped<ICustomerRepository, CustomerRepository>();
+
             services.AddScoped<ICategoryRepository, CategoryRepository>();
             services.AddScoped<IProductRepository, ProductRepository>();
-            services.AddScoped<ICustomerRepository, CustomerRepository>();
-            services.AddScoped<IAccountRepository, AccountRepository>();
+
+            services.AddScoped<IBasketRepository, BasketRepository>();
+            services.AddScoped<IOrderRepository, OrderRepository>();
 
         }
 
@@ -52,7 +56,7 @@ namespace JustSports.WebApi.Extensions
                     {
                         //builder.AllowAnyOrigin()
                         //### Angular opens on port 4200
-                        builder.WithOrigins("http://localhost:4200")
+                        builder.WithOrigins("http://localhost:4200", "http://justsports.digitalaces.co.za", "https://justsports.digitalaces.co.za")
                         .AllowAnyMethod()
                         .AllowAnyHeader();
                     });

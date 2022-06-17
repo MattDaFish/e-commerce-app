@@ -12,14 +12,17 @@ namespace JustSports.WebApi.Models
 
         public DateTimeOffset OrderDate { get; set; } = DateTimeOffset.Now;
         public string OrderNumber { get; set; }
+        public decimal AmountInclVat { get; set; }
+        public decimal Vat { get; set; }
+        public decimal AmountExclVat { get; set; }
 
-        public CustomerData Customer { get; set; }
+        public int OrderStatus { get; set; }
+
+        public long BasketId { get; set; }
+
+        public int CustomerId { get; set; }
 
         public IReadOnlyList<OrderItemData> OrderItems { get; set; }
         
-        public decimal Subtotal { get; set; }
-
-        public string Status { get; set; }
-
     }
 }

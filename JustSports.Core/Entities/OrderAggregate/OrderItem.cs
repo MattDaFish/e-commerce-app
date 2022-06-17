@@ -8,18 +8,6 @@ namespace JustSports.Core.Entities.OrderAggregate
 {
     public class OrderItem
     {
-        public OrderItem()
-        {
-        }
-
-        public OrderItem(Order order, Product product, decimal price, int quantity)
-        {
-            OrderId = order.Id;
-            ProductOrdered = product;
-            PurchasePrice = price;
-            Quantity = quantity;
-        }
-
         public long Id { get; set; }
 
         public long OrderId { get; set; }
@@ -30,5 +18,19 @@ namespace JustSports.Core.Entities.OrderAggregate
 
         public decimal PurchasePrice { get; set; }
         public int Quantity { get; set; }
+
+        public OrderItem()
+        {
+        }
+
+        public OrderItem(long orderId, long productId, decimal price, int quantity)
+        {
+            OrderId = orderId;
+            ProductId = productId;
+            PurchasePrice = price;
+            Quantity = quantity;
+        }
+
+
     }
 }

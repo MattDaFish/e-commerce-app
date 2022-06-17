@@ -2,7 +2,7 @@ using JustSports.Core.Entities;
 
 namespace JustSports.Core.Communication
 {
-    public class CategoryResponse : BaseResponse<Category>
+    public class CategoryResponse : ServiceResponse<Category>
     {
         /// <summary>
         /// Creates a success response.

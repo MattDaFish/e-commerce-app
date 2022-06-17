@@ -18,9 +18,19 @@
           <div class="col-md-6 col-sm-6">
             <ul class="toplinks">
               <li class="acctount-btn">
-                <a routerLink="/login">My Accoount</a>
+                <div class="dropdown">
+                  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> MY ACCOUNT </button>
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton"> 
+                    <a class="dropdown-item" routerLink="/login">Login</a>
+                    <a class="dropdown-item" href="#">Orders</a> 
+                    <a class="dropdown-item" href="#">Personal Details</a>
+                    <a class="dropdown-item" href="#">Wishlist</a> 
+                  </div>
+                </div>                                
               </li>
-              <li class="search-btn"> <a href="#"><i class="fas fa-search"></i></a> </li>
+              <li class="search-btn">
+                <app-basket></app-basket>                 
+                </li>
             </ul>
           </div>
         </div>
@@ -69,7 +79,14 @@
   <!--Header End--> 
   <!--Main Slider Start-->
   <div class="inner-banner-header wf100">
-    <h1 data-generated="Shop Online">Shop Online</h1>
+    
+    <div class="main-search-wrap">
+      <div class="search-form">
+        <input type="text" class="form-control" placeholder="Search our products">
+        <button type="button">GO!</button>
+      </div>
+    </div>
+
     <div class="gt-breadcrumbs">
       <ul>
         <li> <a href="#" class="active"> <i class="fas fa-home"></i> Home </a> </li>
@@ -82,7 +99,7 @@
   <!--Main Slider Start--> 
 
   <!--Main Content Start-->
-  <div class="main-content innerpagebg wf100">    
+  <div class="main-content wf100">    
     <router-outlet></router-outlet>
   </div>
   <!--Main Content End--> 
